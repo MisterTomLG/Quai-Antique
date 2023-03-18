@@ -49,11 +49,6 @@ Créer un nouveau utilisateur.
 * [VSCode](https://code.visualstudio.com/) - Visual Studio Code
 * [JavaScript](https://www.javascript.com/) - JavaScript
 
-
-## Versions
-Liste des versions : [Cliquer pour afficher](https://github.com/your/project-name/tags)
-_(pour le lien mettez simplement l'URL de votre projets suivi de ``/tags``)_
-
 ## Auteurs
 
 * **Thomas LE GUEN** _alias_ [@MisterTomLG](https://github.com/MisterTomLG)
