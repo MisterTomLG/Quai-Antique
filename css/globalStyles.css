@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Raleway:wght@400;500;600&display=swap');
+html {
+	font-size: 10px;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+}
+body {
+	background: linear-gradient(to right, #9d9b9b, #ffffff);
+	overflow-x: hidden;
+	visibility: hidden;
+}
+section {
+	padding: 100px 0;
+}
+@media only screen and (max-width: 767px) {
+	section {
+		padding: 50px 0;
+	}
+}
+.container {
+	max-width: 1280px;
+	width: 100%;
+	margin: 0 auto;
+
+}
+
+.logo {
+	width: auto;
+	height: 55px;
+}
+
+:root {
+	--green-1: #26643b;
+	--green-2: #a2de96;
+	--black-1: #3b413a;
+	--black-2: #3f3c3c;
+	--white-1: #c3c3c3;
+	--white-2: #fff;
+	--bg-color: #222327;
+	--red-1: #ca1717;
+}
+img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+h1,
+h2,
+h3,
+h4 {
+	font-family: Poppins;
+}
+p {
+	font-family: Raleway;
+	font-weight: 400;
+	line-height: 1.4em;
+	font-size: 1.8rem;
+}
+a {
+	display:inline-block;
+	text-decoration: none;
+}
+/* back to top btn */
+.top__btn {
+	position: fixed;
+	height: 50px;
+	width: 50px;
+	background: var(--red-1);
+	bottom: 40px;
+	right: 50px;
+	text-decoration: none;
+	text-align: center;
+	line-height: 50px;
+	color: white;
+	font-size: 22px;
+	border-radius: 50%;
+	opacity: 0;
+	pointer-events: none;
+	transition: all .4s;
+}
+.top__btn.active {
+	bottom: 40px;
+	pointer-events: auto;
+	opacity: 1;
+}
+
+@media only screen and (max-width: 768px) {
+	.top__btn.active {
+		height: 50px;
+		width: 50px;
+		font-size: 12px;
+		right: 10px;
+	}	
+}
+

@@ -1,0 +1,65 @@
+/* page title styles */
+#page__title {
+	padding-top: 3rem;
+	padding-bottom: 2rem;
+
+}
+.page__title__text {
+	font-size: 2.2rem;
+	color: var(--black-1);
+}
+@media only screen and (min-width: 768px) {
+	#page__title {
+		padding-top: 5rem;
+		padding-bottom: 3rem;
+	}
+	.page__title__text {
+		font-size: 3.6rem;
+	}
+}
+
+/*--------------------------------
+Menu Page
+-----------------------------------*/
+h2 {
+	font-size: 2.5rem;
+}
+h3 {
+	font-size: 2rem;
+	text-decoration-line: underline;
+	text-decoration-color: var(--red-1);
+
+}
+h4 {
+	font-size: 1.7rem;
+}
+p {
+	font-size: 1.2rem;
+}
+.grid{
+	padding: 15px;
+	text-align: center;
+}
+.menuInfo{
+	border: solid;
+	padding-top: 15px;
+	background: white;
+}
+.menu-title {
+	font-size: 2.5rem;
+	font-family: poppins;
+	padding-bottom: 20px;
+}
+
+.container-menu{
+	width: calc(33% - 6px);
+	overflow:hidden;
+	height: fit-content;
+	margin:3px;
+	padding-top: 10px;
+	display:inline-block;
+  }
+
+  .menu_sec {
+	border: 3px solid black;
+  }

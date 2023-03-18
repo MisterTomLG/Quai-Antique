@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Raleway:wght@400;500;600&display=swap');
+.container-all{
+	width: fit-content;
+	margin: 20px;
+	margin-top: -50px;
+  }
+  .container-single{
+	width: calc(33% - 6px);
+	overflow:hidden;
+	height: fit-content;
+	margin:3px;
+	padding-top: 10px;
+	display:inline-block;	
+  }
+  
+  img{
+	width: 100%;
+	transition-duration: .3s;
+	max-width: 100%;
+	display:block;
+	overflow:hidden;
+	cursor:pointer;
+  }
+ 
+  @media only screen and (max-width: 900px) {
+	  .container-single {
+		  width: calc(50% - 6px);
+	  }
+  }
+  @media only screen and (max-width: 400px) {
+	  .container-single {
+		  width: 100%;
+	  }
+  }
+
+
