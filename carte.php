@@ -34,8 +34,8 @@
         <a href="admin_page.php">Home</a>
         <a href="res_view.php">Réservations</a>
         <a href="gallery.php">Galerie</a>
-        <a href="carte.php">Carte</a>
-        <a class="active" href="menu.php">Menu</a>
+        <a class="active" href="carte.php">Carte</a>
+        <a href="menu.php">Menu</a>
         <a href="hours.php">Horaires</a>
     </div>
 
@@ -43,20 +43,10 @@
 
 <div class="gallery_container">
 
-    <h3 style="text-align: center; font-size: 35px;" ><i><b>Menu QUAI ANTIQUE</b></i></h3>
+    <h3 style="text-align: center; font-size: 35px;" ><i><b>La Carte QUAI ANTIQUE</b></i></h3>
 
-    <form action="menuUpload.php" class="form-image-upload" method="POST" enctype="multipart/form-data">
+    <form action="carteUpload.php" class="form-image-upload" method="POST" enctype="multipart/form-data">
 
-        <!-- code d'erreur -->
-        <?php if (!empty($_SESSION['error'])) { ?>
-            <div class="alert alert-danger">
-                <strong>oops!</strong> Il y a eu un problème<br><br>
-                <ul>
-                    <li><?php echo $_SESSION['error']; ?></li>
-                </ul>
-            </div>
-        <?php unset($_SESSION['error']);
-        } ?>
 
         <!-- code de succès  -->
         <?php if (!empty($_SESSION['success'])) { ?>
@@ -77,24 +67,20 @@
                 <input type="text" name="category" class="form-control" placeholder="categorie">
             </div>
             <div class="col-md-5">
-                <strong>Plat:</strong>
-                <input type="text" name="meal" class="form-control" placeholder="plat">
+                <strong>Titre:</strong>
+                <input type="text" name="title" class="form-control" placeholder="titre">
             </div>
             <div class="col-md-5">
-                <strong>Dessert:</strong>
-                <input type="text" name="dessert" class="form-control" placeholder="dessert">
-            </div>
-            <div class="col-md-5">
-                <strong>Boisson:</strong>
-                <input type="text" name="drink" class="form-control" placeholder="boisson">
+                <strong>Description:</strong>
+                <input type="text" name="description" class="form-control" placeholder="description">
             </div>
             <div class="col-md-5">
                 <strong>Prix:</strong>
-                <input type="text" name="price" class="form-control" placeholder="prix">
+                <input type="number" name="price" class="form-control" placeholder="prix" min="1" max="20" required>
             </div>
             <div class="col-md-2">
                 <br />
-                <button type="submit" name="save" class="btn btn-success">Télécharger</button>
+                <button type="submit" class="btn btn-success">Télécharger</button>
             </div>
         </div>
     </form>
@@ -105,7 +91,7 @@
             <?php
             require('../login/config.php');
 
-            $sql = "SELECT * FROM daily_menu";
+            $sql = "SELECT * FROM menu";
             $result = $conn->query($sql);
 
             while ($row = $result->fetch_assoc()) {
@@ -118,11 +104,11 @@
                         <div class='text-center'>
                             <small class='text-muted'>
                                 <?php echo $row['category']."<br>"
-                                            .$row['meal']."<br>"
-                                            .$row['dessert']."<br>"
-                                            .$row['drink']."<br>"
+                                            .$row['title']."<br>"
+                                            .$row['description']."<br>"
                                             .$row['price']."<br>"
                                             .$row['id']."<br>";
+                                            
             ?></small>
 
 
@@ -130,9 +116,10 @@
                     </a>
 
                     <!-- formulaire pour effacer photo -->
-                    <form action="./carteDelete.php" method="POST">
-                        <input type="hidden" name="id" value="<?php echo $image['id'] ?>">
-                        <button type="submit" title="delete" class="close-icon btn btn-danger"><i class="glyphicon glyphicon-remove"></i></button>
+                    <form action="carteDelete.php" method="POST" name="del">
+                        <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+                        
+                        <button type="submit" name="del" title="delete" class="close-icon btn btn-danger"><i class="glyphicon glyphicon-remove"></i></button>
                     </form>
 
                 </div> 
