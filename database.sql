@@ -16,7 +16,7 @@ CREATE TABLE user_form
 --Insertion données admin et user
 --
 INSERT INTO `user_form` (`id`, `name`, `email`, `password`, `allergies`, `user_type`) VALUES
-(1, 'Admin', 'admin@gmail.com', 'adminuser123','', 'admin'),
+(1, 'Admin', 'admin@gmail.com', 'admin123','', 'admin'),
 (2, 'Smith', 'smith.sam@gmail.com', 'samsmith','poisson', 'user')
 
 
@@ -63,8 +63,8 @@ CREATE TABLE `menu` (
   `id` bigint(12) NOT NULL,
   `category` varchar(100) NOT NULL,
   `title` varchar(100) NOT NULL,
-  `description` text NOT NULL,
-  `price` bigint(6) NOT NULL
+  `description` varchar(255) NOT NULL,
+  `price` varchar(5) NOT NULL
 )
 
 --
@@ -80,10 +80,10 @@ INSERT INTO `menu` (`id`, `category`, `title`, `description`, `price`) VALUES
 (6, 'Dîner', 'Pétoncles Sautés', 'Coulis Orangé aux Poivres Grillés, compote de Figues', 45),
 (7, 'Dîner', 'Queue de Homard', 'Queue de Homard servi avec pommes de terre sautés', 29),
 (8, 'Dîner', 'Steak New-Yorkais', 'Steak avec pommes de terre', 42),
-(9, 'Dessert', 'Mousse au Chocolat', '', 37),
-(10, 'Dessert', 'Tiramisu', '', 37),
-(11, 'Dessert', 'Vanille Meringue Cookie', '', 37),
-(12, 'Dessert', 'Banana Split', '', 37),
+(9, 'Dessert', 'Mousse au Chocolat', '', 8),
+(10, 'Dessert', 'Tiramisu', '', 10),
+(11, 'Dessert', 'Vanille Meringue Cookie', '', 9),
+(12, 'Dessert', 'Banana Split', '', 8),
 
 --
 -- Création de table pour formule du jour
