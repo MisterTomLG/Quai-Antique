@@ -58,6 +58,10 @@
         } ?>
 
         <div class="row">
+        <div class="col-md-5">
+                <strong>Numéro:</strong>
+                <input type="text" name="id" class="form-control" placeholder="id">
+            </div>
             <div class="col-md-5">
                 <strong>Categorie:</strong>
                 <input type="text" name="category" class="form-control" placeholder="categorie">
@@ -102,7 +106,9 @@
                                 <?php echo $row['category']."<br>"
                                             .$row['title']."<br>"
                                             .$row['description']."<br>"
-                                            .$row['price']."<br>";
+                                            .$row['price']."<br>"
+                                            .$row['id']."<br>";
+                                            
             ?></small>
 
 
@@ -110,9 +116,10 @@
                     </a>
 
                     <!-- formulaire pour effacer photo -->
-                    <form action="./carteDelete.php" method="POST">
-                        <input type="hidden" name="id" value="<?php echo $image['id'] ?>">
-                        <button type="submit" title="delete" class="close-icon btn btn-danger"><i class="glyphicon glyphicon-remove"></i></button>
+                    <form action="carteDelete.php" method="POST" name="del">
+                        <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+                        
+                        <button type="submit" name="del" title="delete" class="close-icon btn btn-danger"><i class="glyphicon glyphicon-remove"></i></button>
                     </form>
 
                 </div> 

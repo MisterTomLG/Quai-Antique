@@ -45,7 +45,7 @@
 
     <h3 style="text-align: center; font-size: 35px;" ><i><b>Menu QUAI ANTIQUE</b></i></h3>
 
-    <form action="carteUpload.php" class="form-image-upload" method="POST" enctype="multipart/form-data">
+    <form action="menuUpload.php" class="form-image-upload" method="POST" enctype="multipart/form-data">
 
         <!-- code d'erreur -->
         <?php if (!empty($_SESSION['error'])) { ?>
@@ -68,6 +68,10 @@
         } ?>
 
         <div class="row">
+        <div class="col-md-5">
+                <strong>Numéro:</strong>
+                <input type="text" name="id" class="form-control" placeholder="id">
+            </div>
             <div class="col-md-5">
                 <strong>Categorie:</strong>
                 <input type="text" name="category" class="form-control" placeholder="categorie">
@@ -90,7 +94,7 @@
             </div>
             <div class="col-md-2">
                 <br />
-                <button type="submit" class="btn btn-success">Télécharger</button>
+                <button type="submit" name="save" class="btn btn-success">Télécharger</button>
             </div>
         </div>
     </form>
@@ -117,7 +121,8 @@
                                             .$row['meal']."<br>"
                                             .$row['dessert']."<br>"
                                             .$row['drink']."<br>"
-                                            .$row['price']."<br>";
+                                            .$row['price']."<br>"
+                                            .$row['id']."<br>";
             ?></small>
 
 

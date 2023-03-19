@@ -1,38 +1,25 @@
-<?php
-session_start();
-require('../login/config.php');
 
-if(isset($_POST['submit'])){
+<?php 
+	session_start();
+	$conn = mysqli_connect('localhost', 'root', '', 'ecf');
 
-    $category = $_POST['category'];
-    $title = mysqli_real_escape_string($conn, $_POST['title']);
-    $description = mysqli_real_escape_string($conn, $_POST['description']);
-    $price = mysqli_real_escape_string($conn, $_POST['price']);
+	// initialize variables
+	$category = "category";
+	$title = "title";
+	$description = "description";
+	$price = "price";
+	$id = "id";
 
-	
-    $select = " SELECT * FROM menu WHERE title = '$title'";
+	if (isset($_POST['save'])) {
+		$category = $_POST['category'];
+		$title = $_POST['title'];
+		$description = $_POST['description'];
+		$price = $_POST['price'];
+		$id = $_POST['id'];
 
-    $result = mysqli_query($conn, $select); 
-	
-	if(mysqli_num_rows($result) > 0){
-
-	$insert = "INSERT INTO menu(category, title, description, price) VALUES('$category','$title','$description','$price')";
-	mysqli_query($conn, $insert);
-	header('location:carte.php');
-    
-
-	if($result)
-	{
-		$_SESSION['success'] = 'Carte téléchargée avec succès.';
-		header("Location: ./carte.php"); // redirection
-
+		mysqli_query($conn, "INSERT INTO menu (id, category, title, description, price) VALUES ('$id' ,'$category', '$title', '$description', '$price')"); 
+		$_SESSION['message'] = "Address saved"; 
+		header('location: carte.php');
 	}
-	else{
-		$_SESSION['error'] = 'carte a échoué';
-		header("Location: ./carte.php");
-	}
-	};
-
-};
 
 ?>

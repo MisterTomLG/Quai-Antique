@@ -1,27 +1,18 @@
-<?php
-session_start();
-require('../login/config.php');
+<?php 
+	session_start();
+	$conn = mysqli_connect('localhost', 'root', '', 'ecf');
 
+	// initialize variables
+	$category = "category";
+	$title = "title";
+	$description = "description";
+	$price = "price";
+	$id = "id";
 
-if(isset($_POST) && !empty($_POST['id'])){
-
-	   // selectionner image pour effacer    
-	   $sql_select = "SELECT * FROM menu WHERE id = ".$_POST['id'];
-	   $select_result = $conn->query($sql_select);
-	    $row = $select_result->fetch_row();
-		
-
-
-		$sql = "DELETE FROM menu WHERE id = ".$_POST['id'];
-		$conn->query($sql);
-
-
-		$_SESSION['success'] = 'Image effacer.';
-		header("Location: ../admin/carte.php");
-}else{
-	$_SESSION['error'] = 'Choisir une image ou un titre';
-	header("Location: ../admin/carte.php");
-}
-
-
+	if (isset($_GET['del'])) {
+		$id = $_GET['del'];
+		mysqli_query($conn, "DELETE FROM menu WHERE id=$id");
+		$_SESSION['message'] = "Menu effacer!"; 
+		header('location: carte.php');
+	}
 ?>
